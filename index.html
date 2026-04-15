@@ -43,11 +43,22 @@
                 #f0f2f5;
         }
 
-        body.light-mode h1 { color: #d45a1e; }
-        body.light-mode h2 { color: #111; }
-        body.light-mode h3 { color: #b8860b; }
+        body.light-mode h1 {
+            color: #d45a1e;
+        }
+
+        body.light-mode h2 {
+            color: #111;
+        }
+
+        body.light-mode h3 {
+            color: #b8860b;
+        }
+
         body.light-mode p,
-        body.light-mode li { color: #333; }
+        body.light-mode li {
+            color: #333;
+        }
 
         body.light-mode .card {
             background: rgba(255, 255, 255, 0.8);
@@ -65,9 +76,17 @@
         }
 
         body.light-mode .highlight-box h2,
-        body.light-mode .highlight-box p { color: #000; }
-        body.light-mode .highlight-box .big-stat { color: #000; }
-        body.light-mode .stat-label { color: #333; }
+        body.light-mode .highlight-box p {
+            color: #000;
+        }
+
+        body.light-mode .highlight-box .big-stat {
+            color: #000;
+        }
+
+        body.light-mode .stat-label {
+            color: #333;
+        }
 
         body.light-mode .nav-btn {
             background: rgba(255, 255, 255, 0.8);
@@ -85,15 +104,22 @@
             border-color: #ddd;
         }
 
-        body.light-mode .menu-dot { background: #ccc; }
+        body.light-mode .menu-dot {
+            background: #ccc;
+        }
 
         body.light-mode .menu-dot.active {
             background: var(--orange);
             box-shadow: 0 0 8px var(--orange);
         }
 
-        body.light-mode .page-indicator { color: #555; }
-        body.light-mode .footer-info { color: #666; }
+        body.light-mode .page-indicator {
+            color: #555;
+        }
+
+        body.light-mode .footer-info {
+            color: #666;
+        }
 
         body.light-mode .progress-container {
             background: rgba(0, 0, 0, 0.1);
@@ -111,8 +137,13 @@
             border-color: var(--orange);
         }
 
-        body.light-mode .step:hover { background: rgba(0, 0, 0, 0.03); }
-        body.light-mode ul li:hover { color: #000; }
+        body.light-mode .step:hover {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        body.light-mode ul li:hover {
+            color: #000;
+        }
 
         body.light-mode .step-deadline {
             background: rgba(0, 0, 0, 0.08);
@@ -180,14 +211,37 @@
             transform: translateY(0);
         }
 
-        .slide.active .anim-item:nth-child(1) { transition-delay: 0.1s; }
-        .slide.active .anim-item:nth-child(2) { transition-delay: 0.2s; }
-        .slide.active .anim-item:nth-child(3) { transition-delay: 0.3s; }
-        .slide.active .anim-item:nth-child(4) { transition-delay: 0.4s; }
-        .slide.active .anim-item:nth-child(5) { transition-delay: 0.5s; }
-        .slide.active .anim-item:nth-child(6) { transition-delay: 0.6s; }
-        .slide.active .anim-item:nth-child(7) { transition-delay: 0.7s; }
-        .slide.active .anim-item:nth-child(8) { transition-delay: 0.8s; }
+        .slide.active .anim-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .slide.active .anim-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .slide.active .anim-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .slide.active .anim-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+        .slide.active .anim-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+
+        .slide.active .anim-item:nth-child(6) {
+            transition-delay: 0.6s;
+        }
+
+        .slide.active .anim-item:nth-child(7) {
+            transition-delay: 0.7s;
+        }
+
+        .slide.active .anim-item:nth-child(8) {
+            transition-delay: 0.8s;
+        }
 
         h1 {
             font-size: clamp(2.5rem, 5vw, 5rem);
@@ -238,14 +292,18 @@
             transition: transform 0.2s;
         }
 
-        ul li:hover::before { transform: translateX(5px); }
+        ul li:hover::before {
+            transform: translateX(5px);
+        }
 
         ul li {
             transition: color 0.2s;
             cursor: default;
         }
 
-        ul li:hover { color: var(--white); }
+        ul li:hover {
+            color: var(--white);
+        }
 
         .grid-2 {
             display: grid;
@@ -276,14 +334,18 @@
             border-left-color: var(--gold);
         }
 
-        .card-gold { border-left: 5px solid var(--gold); }
+        .card-gold {
+            border-left: 5px solid var(--gold);
+        }
 
         .card-gold:hover {
             border-left-color: var(--orange);
             box-shadow: 0 5px 15px rgba(250, 167, 27, 0.2);
         }
 
-        .card-red { border-left: 5px solid #e74c3c; }
+        .card-red {
+            border-left: 5px solid #e74c3c;
+        }
 
         .card-red:hover {
             border-left-color: #c0392b;
@@ -508,8 +570,13 @@
             box-shadow: 0 0 15px var(--orange);
         }
 
-        .nav-prev { left: 20px; }
-        .nav-next { right: 20px; }
+        .nav-prev {
+            left: 20px;
+        }
+
+        .nav-next {
+            right: 20px;
+        }
 
         .theme-toggle {
             position: fixed;
@@ -695,11 +762,20 @@
                 <div class="anim-item">
                     <h3>Current Structure</h3>
                     <ul>
-                        <li>IT Head / System Administrator</li>
-                        <ul>
-                            <li>IT Support</li>
-                            <li>Application / LMS Support</li>
-                        </ul>
+                        <li>MD: Mahesh Hadpe
+                            <ul>
+                                <li>GM: Pradeep Kangle
+                                    <ul>
+                                        <li>System Administrator: Barun Sharma
+                                            <ul>
+                                                <li>IT Support: Pritam Sathe</li>
+                                                <li>LMS Support: Suraj Mahajan</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -737,7 +813,8 @@
                     </ul>
                     <h3 class="anim-item" style="margin-top: 2vh;">Security Improvements</h3>
                     <ul class="anim-item">
-                        <li><strong style="color:var(--gold);">MFA Implementation</strong> — Multi-Factor Authentication deployed across critical systems for enhanced security</li>
+                        <li><strong style="color:var(--gold);">MFA Implementation</strong> — Multi-Factor Authentication
+                            deployed across critical systems for enhanced security</li>
                     </ul>
                     <h3 class="anim-item" style="margin-top: 2vh;">Operational Wins</h3>
                     <ul class="anim-item">
@@ -756,14 +833,16 @@
                     <div class="card card-red anim-item" style="margin-bottom: 2vh;">
                         <h3><span class="warning-icon">⚠</span>Process & Communication</h3>
                         <ul>
-                            <li><strong style="color:#e74c3c;">~50% of employees</strong> do not raise tickets — rely on verbal communication, causing delays or tasks being skipped entirely</li>
+                            <li><strong style="color:#e74c3c;">~50% of employees</strong> do not raise tickets — rely on
+                                verbal communication, causing delays or tasks being skipped entirely</li>
                             <li>Defined SOPs are not being followed consistently across departments</li>
                         </ul>
                     </div>
                     <div class="card card-red anim-item">
                         <h3><span class="warning-icon">⚠</span>External Dependencies</h3>
                         <ul>
-                            <li>Unable to meet TAT due to heavy reliance on external vendors for critical resolutions</li>
+                            <li>Unable to meet TAT due to heavy reliance on external vendors for critical resolutions
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -771,18 +850,24 @@
                     <div class="card card-red anim-item" style="margin-bottom: 2vh;">
                         <h3><span class="warning-icon">⚠</span>Hardware Issues</h3>
                         <ul>
-                            <li>Outdated hardware models leading to <strong style="color:#e74c3c;">increased maintenance costs</strong> and repeated breakdowns</li>
+                            <li>Outdated hardware models leading to <strong style="color:#e74c3c;">increased maintenance
+                                    costs</strong> and repeated breakdowns</li>
                         </ul>
                     </div>
                     <div class="card card-red anim-item">
                         <h3><span class="warning-icon">⚠</span>Out-of-Scope Workload</h3>
                         <ul>
                             <li>IT department burdened with non-IT tasks from other departments:</li>
-                            <li style="margin-left:1vw; font-size: clamp(0.85rem,1.2vw,1.15rem); color:#bbb;">→ Payslip generation</li>
-                            <li style="margin-left:1vw; font-size: clamp(0.85rem,1.2vw,1.15rem); color:#bbb;">→ Certificate generation</li>
-                            <li style="margin-left:1vw; font-size: clamp(0.85rem,1.2vw,1.15rem); color:#bbb;">→ Election work</li>
-                            <li style="margin-left:1vw; font-size: clamp(0.85rem,1.2vw,1.15rem); color:#bbb;">→ Excel formula support</li>
-                            <li style="margin-left:1vw; font-size: clamp(0.85rem,1.2vw,1.15rem); color:#bbb;">→ Bulk mail operations</li>
+                            <li style="margin-left:1vw; font-size: clamp(0.85rem,1.2vw,1.15rem); color:#bbb;">→ Payslip
+                                generation</li>
+                            <li style="margin-left:1vw; font-size: clamp(0.85rem,1.2vw,1.15rem); color:#bbb;">→
+                                Certificate generation</li>
+                            <li style="margin-left:1vw; font-size: clamp(0.85rem,1.2vw,1.15rem); color:#bbb;">→ Election
+                                work</li>
+                            <li style="margin-left:1vw; font-size: clamp(0.85rem,1.2vw,1.15rem); color:#bbb;">→ Excel
+                                formula support</li>
+                            <li style="margin-left:1vw; font-size: clamp(0.85rem,1.2vw,1.15rem); color:#bbb;">→ Bulk
+                                mail operations</li>
                         </ul>
                     </div>
                 </div>
@@ -834,7 +919,8 @@
                 <div class="highlight-box anim-item">
                     <span class="goal-icon">⚙️</span>
                     <h2>Goal 2: ERP V2</h2>
-                    <p>Deploy ERP Version 2 completely <strong>in-house</strong> — no vendor dependency, full customization</p>
+                    <p>Deploy ERP Version 2 completely <strong>in-house</strong> — no vendor dependency, full
+                        customization</p>
                 </div>
                 <div class="highlight-box anim-item">
                     <span class="goal-icon">📋</span>
@@ -844,16 +930,20 @@
             </div>
             <div class="anim-item" style="margin-top: 4vh; border-top: 1px solid #444; padding-top: 2vh;">
                 <h3 style="color: var(--white);">Alignment with Company Strategy</h3>
-                <p><span style="color: var(--gold); font-weight: bold;">Visibility:</span> Data-driven decisions &nbsp; | &nbsp;
-                    <span style="color: var(--gold); font-weight: bold;">Self-Reliance:</span> In-house capabilities &nbsp; | &nbsp;
-                    <span style="color: var(--gold); font-weight: bold;">Discipline:</span> Process compliance</p>
+                <p><span style="color: var(--gold); font-weight: bold;">Visibility:</span> Data-driven decisions &nbsp;
+                    | &nbsp;
+                    <span style="color: var(--gold); font-weight: bold;">Self-Reliance:</span> In-house capabilities
+                    &nbsp; | &nbsp;
+                    <span style="color: var(--gold); font-weight: bold;">Discipline:</span> Process compliance
+                </p>
             </div>
         </div>
 
         <!-- SLIDE 8: Q1 Focus & Critical KPIs -->
         <div class="slide">
             <h2 class="anim-item">Q1 Focus <!--& Critical KPIs--></h2>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2vw; text-align: center; margin-bottom: 4vh;">
+            <div
+                style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2vw; text-align: center; margin-bottom: 4vh;">
                 <!--<div class="card anim-item">
                     <div class="big-stat"><span class="count-up" data-target="90">0</span>%</div>
                     <div class="stat-label">SLA Compliance</div>
@@ -874,11 +964,13 @@
             <div class="grid-2">
                 <div class="card card-gold anim-item">
                     <h3>Focus 1: Dashboards & SOPs</h3>
-                    <p>Complete dashboard requirements gathering, wireframes for Dept Head & CEO levels; Draft and finalize core IT SOPs with enforcement plan</p>
+                    <p>Complete dashboard requirements gathering, wireframes for Dept Head & CEO levels; Draft and
+                        finalize core IT SOPs with enforcement plan</p>
                 </div>
                 <div class="card card-gold anim-item">
                     <h3>Focus 2: ERP V2 Planning</h3>
-                    <p>Define ERP V2 architecture, module roadmap, and begin in-house development setup; Initiate automated onboarding workflows</p>
+                    <p>Define ERP V2 architecture, module roadmap, and begin in-house development setup; Initiate
+                        automated onboarding workflows</p>
                 </div>
             </div>
         </div>
@@ -934,16 +1026,23 @@
                     <span>Mar '27</span>
                 </div>
                 <div class="timeline-track">
-                    <div class="timeline-segment" style="width: 25%; background: linear-gradient(90deg, #e74c3c, #f26724);" title="SOPs: Jul–Aug">
+                    <div class="timeline-segment"
+                        style="width: 25%; background: linear-gradient(90deg, #e74c3c, #f26724);" title="SOPs: Jul–Aug">
                         <span class="seg-label">SOPs</span>
                     </div>
-                    <div class="timeline-segment" style="width: 25%; background: linear-gradient(90deg, #f26724, #faa71b);" title="Dashboards: Aug–Oct">
+                    <div class="timeline-segment"
+                        style="width: 25%; background: linear-gradient(90deg, #f26724, #faa71b);"
+                        title="Dashboards: Aug–Oct">
                         <span class="seg-label">Dashboards</span>
                     </div>
-                    <div class="timeline-segment" style="width: 30%; background: linear-gradient(90deg, #faa71b, #f26724);" title="ERP V2: Oct–Jan">
+                    <div class="timeline-segment"
+                        style="width: 30%; background: linear-gradient(90deg, #faa71b, #f26724);"
+                        title="ERP V2: Oct–Jan">
                         <span class="seg-label">ERP V2</span>
                     </div>
-                    <div class="timeline-segment" style="width: 20%; background: linear-gradient(90deg, #f26724, #e74c3c);" title="Automate: Jan–Mar">
+                    <div class="timeline-segment"
+                        style="width: 20%; background: linear-gradient(90deg, #f26724, #e74c3c);"
+                        title="Automate: Jan–Mar">
                         <span class="seg-label">Automate</span>
                     </div>
                 </div>
