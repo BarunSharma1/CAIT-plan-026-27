@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIS & Compliance — Annual Plan FY 2026-27</title>
+    <style>
+        :root {
+            --orange: #f26724;
+            --gold: #faa71b;
+            --black: #000000;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        body.light-mode { background-color: #f0f2f5; color: #1a1a1a; }
+
+        body.light-mode .presentation-container {
+            background: radial-gradient(circle at top right, rgba(242,103,36,0.05) 0%, transparent 50%),
+                radial-gradient(circle at bottom left, rgba(250,167,27,0.05) 0%, transparent 50%), #f0f2f5;
+        }
+
+        body.light-mode h1 { color: #d45a1e; }
+        body.light-mode h2 { color: #111; }
+        body.light-mode h3 { color: #b8860b; }
+        body.light-mode p, body.light-mode li, body.light-mode td { color: #333; }
+        body.light-mode .card { background: rgba(255,255,255,0.8); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        body.light-mode .card:hover { box-shadow: 0 5px 20px rgba(242,103,36,0.15); background: rgba(242,103,36,0.05); }
+        body.light-mode .highlight-box { color: #000; background: linear-gradient(135deg, #ff8a50, #ffc947); }
+        body.light-mode .highlight-box h2, body.light-mode .highlight-box p { color: #000; }
+        body.light-mode .highlight-box .big-stat { color: #000; }
+        body.light-mode .stat-label { color: #333; }
+        body.light-mode .nav-btn { background: rgba(255,255,255,0.8); color: #111; border-color: var(--orange); }
+        body.light-mode .nav-btn:hover { background: var(--orange); color: #000; }
+        body.light-mode .slide-menu { background: rgba(255,255,255,0.9); border-color: #ddd; }
+        body.light-mode .menu-dot { background: #ccc; }
+        body.light-mode .menu-dot.active { background: var(--orange); box-shadow: 0 0 8px var(--orange); }
+        body.light-mode .page-indicator { color: #555; }
+        body.light-mode .footer-info { color: #666; }
+        body.light-mode .progress-container { background: rgba(0,0,0,0.1); }
+        body.light-mode .step:hover { background: rgba(0,0,0,0.03); }
+        body.light-mode ul li:hover { color: #000; }
+        body.light-mode .step-deadline { background: rgba(0,0,0,0.08); border-color: rgba(231,76,60,0.3); color: #c0392b; }
+        body.light-mode .data-table { border-color: #ddd; }
+        body.light-mode .data-table th { background: rgba(242,103,36,0.1); color: #b8860b; border-color: #ddd; }
+        body.light-mode .data-table td { border-color: #eee; }
+        body.light-mode .data-table tr:hover td { background: rgba(242,103,36,0.05); }
+        body.light-mode .metric-card { background: rgba(255,255,255,0.8); border-color: #ddd; }
+        body.light-mode .metric-card:hover { border-color: var(--orange); box-shadow: 0 5px 20px rgba(242,103,36,0.15); }
+
+        .progress-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 5px;
+            background: rgba(255,255,255,0.1); z-index: 1000; transition: background 0.4s;
+        }
+
+        .progress-bar {
+            height: 100%; background: linear-gradient(90deg, var(--orange), var(--gold));
+            width: 0%; transition: width 0.4s cubic-bezier(0.4,0,0.2,1); box-shadow: 0 0 10px var(--orange);
+        }
+
+        .presentation-container {
+            width: 100%; height: 100%; position: relative;
+            background: radial-gradient(circle at top right, rgba(242,103,36,0.1) 0%, transparent 50%),
+                radial-gradient(circle at bottom left, rgba(250,167,27,0.05) 0%, transparent 50%), var(--black);
+            transition: background 0.4s ease;
+        }
+
+        .slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            padding: 6vh 6vw; display: flex; flex-direction: column; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+        }
+
+        .slide.active { opacity: 1; pointer-events: auto; }
+
+        .anim-item {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .slide.active .anim-item { opacity: 1; transform: translateY(0); }
+        .slide.active .anim-item:nth-child(1) { transition-delay: 0.1s; }
+        .slide.active .anim-item:nth-child(2) { transition-delay: 0.2s; }
+        .slide.active .anim-item:nth-child(3) { transition-delay: 0.3s; }
+        .slide.active .anim-item:nth-child(4) { transition-delay: 0.4s; }
+        .slide.active .anim-item:nth-child(5) { transition-delay: 0.5s; }
+        .slide.active .anim-item:nth-child(6) { transition-delay: 0.6s; }
+        .slide.active .anim-item:nth-child(7) { transition-delay: 0.7s; }
+        .slide.active .anim-item:nth-child(8) { transition-delay: 0.8s; }
+
+        h1 {
+            font-size: clamp(2.2rem, 4.5vw, 4.5rem); color: var(--orange); margin-bottom: 1vh;
+            line-height: 1.1; text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: clamp(1.6rem, 2.8vw, 2.8rem); color: var(--white); margin-bottom: 3.5vh;
+            border-bottom: 4px solid var(--gold); display: inline-block; padding-bottom: 0.8vh;
+            transition: color 0.4s, border-color 0.4s;
+        }
+
+        h3 {
+            font-size: clamp(1.1rem, 1.8vw, 1.6rem); color: var(--gold);
+            margin-bottom: 1.5vh; transition: color 0.4s;
+        }
+
+        p, li {
+            font-size: clamp(0.9rem, 1.3vw, 1.25rem); line-height: 1.6;
+            color: #e0e0e0; transition: color 0.4s;
+        }
+
+        ul { list-style: none; margin-left: 20px; }
+
+        ul li::before {
+            content: "▸"; color: var(--orange); font-weight: bold;
+            display: inline-block; width: 1em; margin-left: -1em; transition: transform 0.2s;
+        }
+
+        ul li:hover::before { transform: translateX(5px); }
+        ul li { transition: color 0.2s; cursor: default; }
+        ul li:hover { color: var(--white); }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; margin-top: 1.5vh; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3vw; margin-top: 1.5vh; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2vw; margin-top: 1.5vh; }
+
+        .card {
+            background: rgba(255,255,255,0.03); border-left: 5px solid var(--orange);
+            padding: 2vh 2vw; border-radius: 0 8px 8px 0; transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background: rgba(242,103,36,0.05); transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(242,103,36,0.2); border-left-color: var(--gold);
+        }
+
+        .card-gold { border-left: 5px solid var(--gold); }
+        .card-gold:hover { border-left-color: var(--orange); box-shadow: 0 5px 15px rgba(250,167,27,0.2); }
+        .card-red { border-left: 5px solid #e74c3c; }
+        .card-red:hover { border-left-color: #c0392b; box-shadow: 0 5px 15px rgba(231,76,60,0.2); }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--orange), var(--gold)); color: var(--black);
+            padding: 2.5vh 2vw; border-radius: 10px; text-align: center; font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .highlight-box:hover { transform: scale(1.03); box-shadow: 0 0 25px rgba(242,103,36,0.5); }
+        .highlight-box h2 { color: var(--black); border: none; margin: 0; font-size: clamp(1.1rem, 1.8vw, 1.8rem); }
+        .highlight-box p { color: var(--black); font-size: clamp(0.85rem, 1.3vw, 1.15rem); margin-top: 0.8vh; line-height: 1.4; }
+
+        .highlight-box .goal-icon { font-size: clamp(1.8rem, 2.5vw, 2.5rem); display: block; margin-bottom: 0.8vh; }
+
+        .big-stat { font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 900; color: var(--gold); line-height: 1; }
+
+        .stat-label {
+            font-size: clamp(0.8rem, 1.1vw, 1rem); color: var(--white); text-transform: uppercase;
+            letter-spacing: 1px; margin-top: 0.8vh; display: block; transition: color 0.4s;
+        }
+
+        /* Data Table */
+        .data-table {
+            width: 100%; border-collapse: collapse; font-size: clamp(0.8rem, 1.2vw, 1.05rem);
+            margin-top: 1vh;
+        }
+
+        .data-table th {
+            background: rgba(242,103,36,0.12); color: var(--gold); text-align: left;
+            padding: 1vh 1.2vw; border-bottom: 2px solid var(--orange); font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px; font-size: clamp(0.75rem, 1vw, 0.9rem);
+        }
+
+        .data-table td {
+            padding: 1vh 1.2vw; border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: #ddd; transition: all 0.2s;
+        }
+
+        .data-table tr:hover td { background: rgba(242,103,36,0.05); color: var(--white); }
+
+        .data-table .pct-good { color: #2ecc71; font-weight: 700; }
+        .data-table .pct-warn { color: var(--gold); font-weight: 700; }
+        .data-table .pct-bad { color: #e74c3c; font-weight: 700; }
+        .data-table .num-bold { font-weight: 700; color: var(--white); font-size: clamp(0.9rem, 1.3vw, 1.15rem); }
+
+        .table-wrapper {
+            background: rgba(255,255,255,0.02); border-radius: 8px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06); transition: all 0.3s;
+        }
+
+        .table-wrapper:hover { border-color: rgba(242,103,36,0.3); }
+
+        .table-title {
+            padding: 1vh 1.5vw; font-size: clamp(0.85rem, 1.2vw, 1.1rem); font-weight: 700;
+            color: var(--orange); background: rgba(242,103,36,0.06);
+            border-bottom: 1px solid rgba(242,103,36,0.15); letter-spacing: 0.5px;
+        }
+
+        /* Team Table */
+        .team-table { width: 100%; border-collapse: collapse; font-size: clamp(0.85rem, 1.2vw, 1.1rem); }
+        .team-table th {
+            background: rgba(242,103,36,0.12); color: var(--gold); text-align: left;
+            padding: 1.2vh 1.5vw; border-bottom: 2px solid var(--orange); font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px; font-size: clamp(0.75rem, 1vw, 0.9rem);
+        }
+        .team-table td {
+            padding: 1vh 1.5vw; border-bottom: 1px solid rgba(255,255,255,0.06); color: #ddd; transition: all 0.2s;
+        }
+        .team-table tr:hover td { background: rgba(242,103,36,0.05); color: var(--white); }
+        .team-table .sr-no { color: var(--orange); font-weight: 700; width: 3vw; text-align: center; }
+        .team-table .desig { color: var(--gold); font-weight: 600; }
+
+        /* Metric Cards */
+        .metric-card {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08);
+            padding: 2vh 1.5vw; border-radius: 8px; text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover { border-color: var(--orange); transform: translateY(-5px); box-shadow: 0 8px 20px rgba(242,103,36,0.15); }
+
+        .metric-card .metric-value {
+            font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; line-height: 1;
+        }
+
+        .metric-card .metric-label {
+            font-size: clamp(0.75rem, 1vw, 0.9rem); color: #999; text-transform: uppercase;
+            letter-spacing: 0.5px; margin-top: 0.8vh; display: block;
+        }
+
+        .metric-green { color: #2ecc71; }
+        .metric-orange { color: var(--orange); }
+        .metric-gold { color: var(--gold); }
+        .metric-red { color: #e74c3c; }
+
+        /* Steps */
+        .step-container { display: flex; justify-content: space-between; margin-top: 3vh; gap: 1vw; }
+
+        .step {
+            flex: 1; text-align: center; position: relative; padding: 2vh 0.8vw;
+            border-radius: 10px; border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.02); transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            background: rgba(242,103,36,0.05); border-color: rgba(242,103,36,0.3);
+            transform: translateY(-5px); box-shadow: 0 8px 20px rgba(242,103,36,0.15);
+        }
+
+        .step:not(:last-child)::after {
+            content: "→"; position: absolute; right: -10px; top: 25%;
+            color: var(--orange); font-size: 2rem; z-index: 2;
+        }
+
+        .step-number { font-size: 2.2rem; font-weight: 900; color: var(--orange); }
+        .step h4 { color: var(--gold); margin: 0.8vh 0; font-size: clamp(0.85rem, 1.3vw, 1.1rem); }
+        .step p { font-size: clamp(0.75rem, 1vw, 0.9rem); padding: 0 0.3vw; }
+
+        .step-deadline {
+            display: inline-block; background: rgba(231,76,60,0.12); color: #e74c3c;
+            border: 1px solid rgba(231,76,60,0.35); padding: 0.4vh 0.8vw; border-radius: 4px;
+            font-size: clamp(0.65rem, 0.9vw, 0.8rem); font-weight: 700;
+            margin-top: 1vh; letter-spacing: 0.3px; white-space: nowrap;
+        }
+
+        .step-timeline-bar {
+            width: 100%; height: 3px; background: rgba(255,255,255,0.06);
+            border-radius: 2px; margin-top: 1.2vh; overflow: hidden;
+        }
+
+        .step-timeline-fill {
+            height: 100%; border-radius: 2px;
+            background: linear-gradient(90deg, var(--orange), var(--gold)); transition: width 0.8s ease;
+        }
+
+        /* Timeline Bar */
+        .timeline-bar-container {
+            margin-top: 3vh; padding: 2vh 1.5vw; border-radius: 8px;
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .timeline-header {
+            display: flex; justify-content: space-between; margin-bottom: 1.2vh; padding: 0 0.5vw;
+        }
+
+        .timeline-header span {
+            font-size: clamp(0.7rem, 0.95vw, 0.85rem); color: #888;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .timeline-track { display: flex; gap: 0; height: 10px; border-radius: 5px; overflow: hidden; }
+
+        .timeline-segment { height: 100%; position: relative; transition: all 0.3s; }
+        .timeline-segment:hover { filter: brightness(1.3); transform: scaleY(1.4); }
+        .timeline-segment .seg-label {
+            position: absolute; bottom: -2.5vh; left: 50%; transform: translateX(-50%);
+            font-size: clamp(0.6rem, 0.85vw, 0.75rem); color: #999; white-space: nowrap; transition: color 0.2s;
+        }
+        .timeline-segment:hover .seg-label { color: var(--white); }
+
+        /* Nav */
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.05); color: var(--white); border: 2px solid var(--orange);
+            width: 50px; height: 50px; border-radius: 50%; font-size: 20px; cursor: pointer;
+            display: flex; justify-content: center; align-items: center; transition: all 0.3s; z-index: 100;
+        }
+
+        .nav-btn:hover {
+            background: var(--orange); color: var(--black);
+            transform: translateY(-50%) scale(1.1); box-shadow: 0 0 15px var(--orange);
+        }
+
+        .nav-prev { left: 20px; }
+        .nav-next { right: 20px; }
+
+        .slide-menu {
+            position: fixed; bottom: 20px; left: 20px; background: rgba(0,0,0,0.8);
+            border: 1px solid #333; padding: 10px; border-radius: 8px; z-index: 100;
+            display: flex; gap: 6px; backdrop-filter: blur(5px); transition: background 0.4s, border-color 0.4s;
+        }
+
+        .menu-dot {
+            width: 10px; height: 10px; border-radius: 50%; background: #555;
+            cursor: pointer; transition: all 0.3s; border: none;
+        }
+
+        .menu-dot:hover { background: var(--white); transform: scale(1.2); }
+        .menu-dot.active { background: var(--orange); box-shadow: 0 0 8px var(--orange); transform: scale(1.2); }
+
+        .page-indicator {
+            position: absolute; bottom: 25px; right: 40px; font-size: 1rem;
+            color: #888; z-index: 100; transition: color 0.4s;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 1.8vw, 1.8rem); color: var(--gold);
+            margin-bottom: 4vh; letter-spacing: 1px; transition: color 0.4s;
+        }
+
+        .footer-info { margin-top: auto; font-size: 0.9rem; color: #888; transition: color 0.4s; }
+
+        .global-logo {
+            position: fixed; top: 12px; right: 80px; max-height: 55px; z-index: 1001;
+            filter: drop-shadow(0 0 8px rgba(242,103,36,0.3)); transition: max-height 0.3s ease, filter 0.3s ease;
+        }
+
+        .global-logo:hover { max-height: 65px; filter: drop-shadow(0 0 12px rgba(242,103,36,0.5)); }
+
+        .warning-icon { color: #e74c3c; margin-right: 0.5vw; }
+
+        .cover-detail {
+            display: flex; justify-content: space-between; padding: 1.5vh 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .cover-detail-label {
+            font-size: clamp(0.9rem, 1.3vw, 1.2rem); color: #888; text-transform: uppercase;
+            letter-spacing: 1px; font-weight: 600;
+        }
+
+        .cover-detail-value {
+            font-size: clamp(1rem, 1.5vw, 1.4rem); color: var(--white); font-weight: 700;
+        }
+
+        .remark-tag {
+            display: inline-block; font-size: clamp(0.7rem, 0.95vw, 0.85rem);
+            color: #999; font-style: italic; padding: 0.2vh 0.5vw;
+        }
+
+        .compact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5vw; }
+    </style>
+</head>
+
+<body>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <img src="../CAIT_white_BBG-removebg-preview.png" alt="CAIT Logo" class="global-logo">
+
+    <div class="presentation-container">
+
+        <!-- SLIDE 1: Title -->
+        <div class="slide active">
+            <p class="subtitle anim-item">Annual Presentation</p>
+            <h1 class="anim-item">MIS & Compliance<br>FY 2026–27</h1>
+            <h2 class="anim-item">Strategic Goals & Action Plan</h2>
+            <p class="anim-item footer-info" style="margin-top:5vh; color:var(--orange);">Press → or click arrows to navigate</p>
+        </div>
+
+        <!-- SLIDE 2: Cover Details -->
+        <div class="slide" style="justify-content: center;">
+            <div style="max-width: 50vw;">
+                <div class="anim-item cover-detail">
+                    <span class="cover-detail-label">Department</span>
+                    <span class="cover-detail-value">MIS and Compliance</span>
+                </div>
+                <div class="anim-item cover-detail">
+                    <span class="cover-detail-label">Presenter</span>
+                    <span class="cover-detail-value">Madhuri Shirke</span>
+                </div>
+                <div class="anim-item cover-detail">
+                    <span class="cover-detail-label">Financial Year</span>
+                    <span class="cover-detail-value">2026–27</span>
+                </div>
+                <div class="anim-item cover-detail" style="border: none;">
+                    <span class="cover-detail-label">Date</span>
+                    <span class="cover-detail-value">Annual Meeting 2026</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Department Overview -->
+        <div class="slide">
+            <h2 class="anim-item">Department Overview</h2>
+            <div class="grid-2">
+                <div class="anim-item">
+                    <h3>Core Objectives</h3>
+                    <ul>
+                        <li>Ensure <strong style="color:var(--white);">100% compliance</strong> for all candidates within 24 hours of joining — eKYC, Beneficiary ID, Profile creation, Apprenticeship Contract, CLRA documentation</li>
+                        <li>Complete <strong style="color:var(--white);">certification for 100%</strong> of candidates on the last day of apprenticeship</li>
+                        <li>Ensure <strong style="color:var(--white);">100% DBT</strong> is received by all candidates</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="card anim-item" style="margin-bottom: 2vh;">
+                        <p><strong style="color:var(--white)">Speed:</strong> 24-hour onboarding compliance turnaround</p>
+                    </div>
+                    <div class="card anim-item" style="margin-bottom: 2vh;">
+                        <p><strong style="color:var(--white)">Accuracy:</strong> Zero-error data entry & documentation</p>
+                    </div>
+                    <div class="card anim-item">
+                        <p><strong style="color:var(--white)">Coverage:</strong> 100% DBT & certification completion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Team Structure -->
+        <div class="slide">
+            <h2 class="anim-item">Team Structure</h2>
+            <div class="anim-item table-wrapper">
+                <table class="team-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 5vw; text-align: center;">Sr. No</th>
+                            <th>Name</th>
+                            <th>Designation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="sr-no">1</td><td>Madhuri Shirke</td><td class="desig">Sr. Compliance Executive</td></tr>
+                        <tr><td class="sr-no">2</td><td>Rohini Tarate</td><td class="desig">Sr. Compliance Executive</td></tr>
+                        <tr><td class="sr-no">3</td><td>Pranjali Ghanekar</td><td class="desig">Compliance Executive</td></tr>
+                        <tr><td class="sr-no">4</td><td>Vaishnavi Ovhal</td><td class="desig">Compliance Executive</td></tr>
+                        <tr><td class="sr-no">5</td><td>Priyanka Zade</td><td class="desig">Compliance Executive</td></tr>
+                        <tr><td class="sr-no">6</td><td>Prakash Waghmare</td><td class="desig">Compliance Executive</td></tr>
+                        <tr><td class="sr-no">7</td><td>Mansi Kapade</td><td class="desig">Compliance Executive</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="anim-item" style="margin-top: 2vh;">
+                <div style="display: flex; gap: 3vw;">
+                    <div class="card card-gold" style="flex:1;">
+                        <p><strong style="color:var(--gold);">2</strong> Sr. Compliance Executives</p>
+                    </div>
+                    <div class="card" style="flex:1;">
+                        <p><strong style="color:var(--orange);">5</strong> Compliance Executives</p>
+                    </div>
+                    <div class="card" style="flex:1;">
+                        <p><strong style="color:var(--white);">7</strong> Total Team Size</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Strategic Importance -->
+        <div class="slide">
+            <h2 class="anim-item">Strategic Importance</h2>
+            <div class="grid-2">
+                <div class="anim-item">
+                    <h3>Operational Pillars</h3>
+                    <ul>
+                        <li>Ensure all candidate registrations, contracts, stipends, DBT, and assessments are completed <strong style="color:var(--white);">on time</strong></li>
+                        <li>Closely coordinate with <strong style="color:var(--white);">NSDC & BOAT</strong> for DBT</li>
+                        <li>Train site supervisors on Aadhaar seeding, eKYC, and the apprenticeship process</li>
+                    </ul>
+                </div>
+                <div class="anim-item">
+                    <h3>Process Discipline</h3>
+                    <ul>
+                        <li>Maintain <strong style="color:var(--white);">clear SOPs and checklists</strong> at every stage</li>
+                        <li>Ensure <strong style="color:var(--white);">accurate data</strong> entry and reporting</li>
+                        <li>Reduce payment issues through proactive tracking</li>
+                        <li>Support the team through <strong style="color:var(--white);">regular site visits</strong></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="anim-item footer-info" style="text-align: center; margin-top: 3vh; color: var(--orange); font-style: italic; font-size: 1.1rem;">
+                "Compliance is not a backend function — it is the foundation of every stipend paid and every certificate issued."
+            </p>
+        </div>
+
+        <!-- SLIDE 6: Previous Year Performance — NAPS -->
+        <div class="slide">
+            <h2 class="anim-item">Previous Year Performance (2025–26)</h2>
+            <div class="compact-grid">
+                <div class="anim-item table-wrapper">
+                    <div class="table-title">📊 NAPS Stipend through VAN Account</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Metric</th><th>Value</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Candidate Count (Attendance)</td><td class="num-bold">27,925</td></tr>
+                            <tr><td>Portal Count</td><td class="num-bold">21,294</td></tr>
+                            <tr><td>Target Achieved</td><td class="pct-warn">76%</td></tr>
+                            <tr><td><span class="remark-tag">Stipend for 12 months (Only Blue Collar)</span></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="anim-item table-wrapper">
+                    <div class="table-title">💰 NAPS DBT Status</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Metric</th><th>Value</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Candidate Count (Attendance)</td><td class="num-bold">42,196</td></tr>
+                            <tr><td>DBT Received Count</td><td class="num-bold">39,233</td></tr>
+                            <tr><td>Target Achieved</td><td class="pct-good">93%</td></tr>
+                            <tr><td><span class="remark-tag">Data for 11 months including Flipkart</span></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="anim-item" style="margin-top: 2vh;">
+                <div class="highlight-box">
+                    <h2>Contracts Generated: <span style="font-size: clamp(2rem, 3.5vw, 3.5rem);"><span class="count-up" data-target="18512">0</span></span></h2>
+                    <p>April 2025 – March 2026</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Previous Year Performance — NATS -->
+        <div class="slide">
+            <h2 class="anim-item">Previous Year Performance (Continued)</h2>
+            <div class="compact-grid" style="margin-bottom: 2vh;">
+                <div class="anim-item table-wrapper">
+                    <div class="table-title">💰 NATS DBT Status</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Metric</th><th>Value</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Candidate Count (Attendance)</td><td class="num-bold">2,020</td></tr>
+                            <tr><td>DBT Received Count</td><td class="num-bold">1,566</td></tr>
+                            <tr><td>Target Achieved</td><td class="pct-warn">78%</td></tr>
+                            <tr><td><span class="remark-tag">Data for 11 months</span></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="anim-item table-wrapper">
+                    <div class="table-title">📝 Assessment Status</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Metric</th><th>Value</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Eligible Candidates</td><td class="num-bold">7,375</td></tr>
+                            <tr><td>Assessment Conducted</td><td class="num-bold">2,008</td></tr>
+                            <tr><td>Target Achieved</td><td class="pct-bad">27%</td></tr>
+                            <tr><td><span class="remark-tag">CAIT target: 56% | Flipkart: 3%</span></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="grid-4 anim-item" style="text-align: center;">
+                <div class="metric-card">
+                    <div class="metric-value pct-good">93%</div>
+                    <div class="metric-label">NAPS DBT</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value pct-warn">78%</div>
+                    <div class="metric-label">NATS DBT</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value pct-warn">76%</div>
+                    <div class="metric-label">VAN Stipend</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value pct-bad">27%</div>
+                    <div class="metric-label">Assessment</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Challenges -->
+        <div class="slide">
+            <h2 class="anim-item">Challenges Faced</h2>
+            <div class="grid-2">
+                <div>
+                    <div class="card card-red anim-item" style="margin-bottom: 2vh;">
+                        <h3><span class="warning-icon">⚠</span>Payment Delays</h3>
+                        <ul>
+                            <li>Delays in <strong style="color:#e74c3c;">government DBT payments</strong></li>
+                            <li>Slow response from BOAT on escalation cases</li>
+                        </ul>
+                    </div>
+                    <div class="card card-red anim-item">
+                        <h3><span class="warning-icon">⚠</span>Awareness Gaps</h3>
+                        <ul>
+                            <li>Lack of awareness among <strong style="color:#e74c3c;">supervisors</strong> about NAPS/NATS processes</li>
+                            <li>Candidates unaware of Aadhaar seeding → <strong style="color:#e74c3c;">Beneficiary ID delays</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="card card-red anim-item" style="margin-bottom: 2vh;">
+                        <h3><span class="warning-icon">⚠</span>Process Bottlenecks</h3>
+                        <ul>
+                            <li>Contract approval delays impacting <strong style="color:#e74c3c;">payroll timelines</strong></li>
+                            <li>Documentation issues causing rework</li>
+                        </ul>
+                    </div>
+                    <div class="card card-red anim-item">
+                        <h3><span class="warning-icon">⚠</span>Coordination Issues</h3>
+                        <ul>
+                            <li>Portal errors disrupting workflow</li>
+                            <li>Coordination gaps between <strong style="color:#e74c3c;">teams and clients</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: Learnings -->
+        <div class="slide">
+            <h2 class="anim-item">Key Learnings</h2>
+            <div class="grid-3" style="margin-top: 3vh;">
+                <div class="highlight-box anim-item">
+                    <span class="goal-icon">🔍</span>
+                    <h2>Document Verification</h2>
+                    <p>Complete document verification <strong>before onboarding</strong> to prevent downstream rework and delays</p>
+                </div>
+                <div class="highlight-box anim-item">
+                    <span class="goal-icon">📅</span>
+                    <h2>Weekly Contract Review</h2>
+                    <p>Conduct weekly reviews of all pending contracts to avoid last-minute rushes and payroll impact</p>
+                </div>
+                <div class="highlight-box anim-item">
+                    <span class="goal-icon">📈</span>
+                    <h2>DBT Tracker</h2>
+                    <p>Maintain a dedicated tracker for NAPS DBT payments to identify and escalate gaps early</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: Areas of Improvement -->
+        <div class="slide">
+            <h2 class="anim-item">Areas of Improvement</h2>
+            <div class="grid-2">
+                <div class="anim-item">
+                    <h3>Training & Awareness</h3>
+                    <ul>
+                        <li>Train supervisors and field officers on <strong style="color:var(--white);">Aadhaar seeding, eKYC, and NAPS/NATS processes</strong></li>
+                        <li>Regular refresher sessions for site-level teams</li>
+                    </ul>
+                    <h3 style="margin-top: 2vh;">Data Accuracy</h3>
+                    <ul>
+                        <li>Ensure <strong style="color:var(--white);">accurate entry</strong> of candidate data at source</li>
+                        <li>Implement verification checkpoints before portal submission</li>
+                    </ul>
+                </div>
+                <div class="anim-item">
+                    <h3>SOP Creation</h3>
+                    <ul>
+                        <li>Create clear SOPs for all stages: <strong style="color:var(--white);">registration → contract → stipend → termination → assessment</strong></li>
+                        <li>Standardize checklists for each stage</li>
+                    </ul>
+                    <h3 style="margin-top: 2vh;">Tracking & Monitoring</h3>
+                    <ul>
+                        <li>Maintain a <strong style="color:var(--white);">tracking sheet for NAPS DBT</strong> payments with status columns</li>
+                        <li>Weekly status reports to management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: Annual Goals -->
+        <div class="slide">
+            <h2 class="anim-item">Annual Goals 2026–27</h2>
+            <div class="grid-3">
+                <div class="highlight-box anim-item">
+                    <span class="goal-icon">✅</span>
+                    <h2>Goal 1: 100% Compliance</h2>
+                    <p>Registration, contract, stipend, termination, and certification — all within stipulated time</p>
+                </div>
+                <div class="highlight-box anim-item">
+                    <span class="goal-icon">⚡</span>
+                    <h2>Goal 2: 24-Hr Onboarding</h2>
+                    <p>Complete all onboarding for every candidate within 24 hours — eKYC, Beneficiary ID, Profile, Contract</p>
+                </div>
+                <div class="highlight-box anim-item">
+                    <span class="goal-icon">💰</span>
+                    <h2>Goal 3: 100% DBT</h2>
+                    <p>Every eligible candidate receives DBT — zero NEFT fallback dependency</p>
+                </div>
+            </div>
+            <div class="anim-item" style="margin-top: 3vh; border-top: 1px solid #444; padding-top: 2vh;">
+                <h3 style="color: var(--white);">Non-Negotiable Targets</h3>
+                <p><span style="color: var(--gold); font-weight: bold;">100%</span> compliance &nbsp; | &nbsp;
+                    <span style="color: var(--gold); font-weight: bold;">24 hrs</span> onboarding &nbsp; | &nbsp;
+                    <span style="color: var(--gold); font-weight: bold;">100%</span> DBT &nbsp; | &nbsp;
+                    <span style="color: var(--gold); font-weight: bold;">Zero</span> NEFT dependency</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: Alignment with Company Strategy -->
+        <div class="slide">
+            <h2 class="anim-item">Alignment with Company Strategy</h2>
+            <div class="grid-3" style="margin-top: 3vh;">
+                <div class="card anim-item" style="text-align: center; border-left: 5px solid #2ecc71;">
+                    <h3 style="color: #2ecc71;">⚡ Speed</h3>
+                    <p>Timely completion of all processes with data accuracy and <strong style="color:var(--white);">minimal NEFT dependency</strong></p>
+                </div>
+                <div class="card card-gold anim-item" style="text-align: center;">
+                    <h3>👥 Capability</h3>
+                    <p>Strengthen team through <strong style="color:var(--white);">training, eKYC awareness, and multiskilling</strong></p>
+                </div>
+                <div class="card anim-item" style="text-align: center; border-left: 5px solid var(--orange);">
+                    <h3>🎯 DBT Excellence</h3>
+                    <p>Achieve <strong style="color:var(--white);">100% DBT</strong> through proper Aadhaar seeding and close coordination with NSDC & BOAT</p>
+                </div>
+            </div>
+            <div class="anim-item" style="margin-top: 4vh;">
+                <div class="card" style="border-left-color: var(--gold); background: rgba(250,167,27,0.04);">
+                    <p style="font-size: clamp(1rem, 1.4vw, 1.3rem); color: var(--gold); font-weight: 600;">
+                        "Every rupee reaching the candidate through DBT — not NEFT — is a win for compliance, for the candidate, and for the organization."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: Q1 Objectives -->
+        <div class="slide">
+            <h2 class="anim-item">Q1 2026–27 Objectives</h2>
+            <div class="grid-2">
+                <div class="anim-item">
+                    <div class="card card-gold" style="margin-bottom: 1.5vh;">
+                        <h3>SOP Finalization</h3>
+                        <p>Finalize SOP for all stages by <strong style="color:var(--white);">April 2026</strong></p>
+                        <span class="step-deadline">⏰ April 2026</span>
+                    </div>
+                    <div class="card" style="margin-bottom: 1.5vh;">
+                        <h3>Supervisor Training</h3>
+                        <p>Train supervisors on Aadhaar seeding and eKYC</p>
+                        <span class="step-deadline">⏰ Apr–May 2026</span>
+                    </div>
+                    <div class="card card-gold">
+                        <h3>Team Alignment</h3>
+                        <p>Align company allocation with the Compliance team</p>
+                        <span class="step-deadline">⏰ May 2026</span>
+                    </div>
+                </div>
+                <div class="anim-item">
+                    <div class="card" style="margin-bottom: 1.5vh;">
+                        <h3>Weekly Status Reviews</h3>
+                        <p>Conduct weekly review of registration, contract, and Beneficiary ID status</p>
+                        <span class="step-deadline">⏰ Apr–Jun 2026</span>
+                    </div>
+                    <div class="card card-gold">
+                        <h3>Contract Review Process</h3>
+                        <p>Review contracts within <strong style="color:var(--white);">2 days</strong> of signing and follow up with SSC</p>
+                        <span class="step-deadline">⏰ Apr–Jun 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: Critical Metrics -->
+        <div class="slide">
+            <h2 class="anim-item">Critical Metrics</h2>
+            <div class="anim-item table-wrapper" style="margin-top: 1vh;">
+                <table class="data-table" style="font-size: clamp(0.9rem, 1.3vw, 1.15rem);">
+                    <thead>
+                        <tr>
+                            <th style="width: 45%;">Critical Metric</th>
+                            <th style="width: 25%;">Target</th>
+                            <th style="width: 30%;">Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong style="color:var(--white);">Delay in document submission</strong></td>
+                            <td class="pct-good" style="font-size: clamp(1.1rem, 1.6vw, 1.4rem);">Reduce by 90%</td>
+                            <td><span style="color:#e74c3c; font-weight:700;">🔴 Critical</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color:var(--white);">Pending Aadhaar seeding cases</strong></td>
+                            <td class="pct-good" style="font-size: clamp(1.1rem, 1.6vw, 1.4rem);">Reduce by 90%</td>
+                            <td><span style="color:#e74c3c; font-weight:700;">🔴 Critical</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color:var(--white);">Pending eKYC cases</strong></td>
+                            <td class="pct-good" style="font-size: clamp(1.1rem, 1.6vw, 1.4rem);">Reduce by 90%</td>
+                            <td><span style="color:#e74c3c; font-weight:700;">🔴 Critical</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color:var(--white);">Beneficiary ID Creation</strong></td>
+                            <td class="metric-green" style="font-size: clamp(1.1rem, 1.6vw, 1.4rem); font-weight:900;">100%</td>
+                            <td><span style="color:var(--orange); font-weight:700;">🟠 High</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color:var(--white);">Candidates receiving DBT</strong></td>
+                            <td class="metric-gold" style="font-size: clamp(1.1rem, 1.6vw, 1.4rem); font-weight:900;">More than 95%</td>
+                            <td><span style="color:var(--orange); font-weight:700;">🟠 High</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SLIDE 15: Q1 Action Plan with Timeline -->
+        <div class="slide">
+            <h2 class="anim-item">Q1 Action Plan & Timeline</h2>
+            <div class="step-container">
+                <div class="step anim-item">
+                    <div class="step-number">01</div>
+                    <h4>Document & eKYC Follow-up</h4>
+                    <p>Strong follow-up with candidates & supervisors for pending documents & eKYC</p>
+                    <div class="step-timeline-bar">
+                        <div class="step-timeline-fill" style="width: 33%;"></div>
+                    </div>
+                    <span class="step-deadline">⏰ April 2026</span>
+                    <p style="margin-top: 0.8vh; font-size: clamp(0.7rem, 0.9vw, 0.8rem); color: #2ecc71; font-weight: 600;">→ Reduce NEFT by 20%</p>
+                </div>
+                <div class="step anim-item">
+                    <div class="step-number">02</div>
+                    <h4>Supervisor Training</h4>
+                    <p>Training to Site Supervisors on Aadhaar seeding, eKYC & NAPS/NATS processes</p>
+                    <div class="step-timeline-bar">
+                        <div class="step-timeline-fill" style="width: 33%;"></div>
+                    </div>
+                    <span class="step-deadline">⏰ May 2026</span>
+                    <p style="margin-top: 0.8vh; font-size: clamp(0.7rem, 0.9vw, 0.8rem); color: #2ecc71; font-weight: 600;">→ Reduce NEFT by 20%</p>
+                </div>
+                <div class="step anim-item">
+                    <div class="step-number">03</div>
+                    <h4>DBT Coordination</h4>
+                    <p>Close coordination with NSDC & BOAT for DBT status tracking and resolution</p>
+                    <div class="step-timeline-bar">
+                        <div class="step-timeline-fill" style="width: 34%;"></div>
+                    </div>
+                    <span class="step-deadline">⏰ June 2026</span>
+                    <p style="margin-top: 0.8vh; font-size: clamp(0.7rem, 0.9vw, 0.8rem); color: #2ecc71; font-weight: 600;">→ 100% candidates get DBT</p>
+                </div>
+            </div>
+
+            <div class="timeline-bar-container anim-item">
+                <div class="timeline-header">
+                    <span>April 2026</span>
+                    <span>May 2026</span>
+                    <span>June 2026</span>
+                </div>
+                <div class="timeline-track">
+                    <div class="timeline-segment" style="width: 33.3%; background: linear-gradient(90deg, #e74c3c, #f26724);" title="Doc & eKYC Follow-up: April">
+                        <span class="seg-label">Doc Follow-up</span>
+                    </div>
+                    <div class="timeline-segment" style="width: 33.3%; background: linear-gradient(90deg, #f26724, #faa71b);" title="Supervisor Training: May">
+                        <span class="seg-label">Training</span>
+                    </div>
+                    <div class="timeline-segment" style="width: 33.4%; background: linear-gradient(90deg, #faa71b, #2ecc71);" title="DBT Coordination: June">
+                        <span class="seg-label">DBT Coordination</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 16: Thank You -->
+        <div class="slide" style="justify-content: center; align-items: center; text-align: center;">
+            <h1 class="anim-item" style="font-size: clamp(4rem, 8vw, 8rem); margin-bottom: 2vh;">Thank You</h1>
+            <p class="anim-item" style="margin-top: 5vh; font-size: 1.2rem;">
+                Madhuri Shirke | MIS & Compliance Department
+            </p>
+        </div>
+
+        <!-- Controls -->
+        <button class="nav-btn nav-prev" onclick="changeSlide(-1)">❮</button>
+        <button class="nav-btn nav-next" onclick="changeSlide(1)">❯</button>
+
+        <div class="slide-menu" id="slide-menu"></div>
+
+        <div class="page-indicator">
+            <span id="current-slide">1</span> / <span id="total-slides">16</span>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressBar = document.getElementById('progress-bar');
+        const menuContainer = document.getElementById('slide-menu');
+
+        document.getElementById('total-slides').innerText = totalSlides;
+
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('menu-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.onclick = () => goToSlide(index);
+            menuContainer.appendChild(dot);
+        });
+
+        function updateUI() {
+            document.getElementById('current-slide').innerText = currentSlide + 1;
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progress}%`;
+            document.querySelectorAll('.menu-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function triggerCounters(slideElement) {
+            const counters = slideElement.querySelectorAll('.count-up');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 1500;
+                let start = 0;
+                const updateCounter = (timestamp) => {
+                    if (!start) start = timestamp;
+                    const progress = Math.min((timestamp - start) / duration, 1);
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    counter.innerText = Math.floor(easeOut * target).toLocaleString('en-IN');
+                    if (progress < 1) {
+                        window.requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target.toLocaleString('en-IN');
+                    }
+                };
+                window.requestAnimationFrame(updateCounter);
+            });
+        }
+
+        function goToSlide(index) {
+            if (index === currentSlide) return;
+            const prevSlide = slides[currentSlide];
+            const nextSlide = slides[index];
+            const nextElements = nextSlide.querySelectorAll('.anim-item');
+            nextElements.forEach(el => {
+                el.style.transition = 'none';
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+            });
+            prevSlide.classList.remove('active');
+            void nextSlide.offsetWidth;
+            currentSlide = index;
+            nextSlide.classList.add('active');
+            requestAnimationFrame(() => {
+                nextElements.forEach(el => {
+                    el.style.transition = '';
+                    el.style.opacity = '';
+                    el.style.transform = '';
+                });
+            });
+            triggerCounters(nextSlide);
+            updateUI();
+        }
+
+        function changeSlide(direction) {
+            let nextSlide = currentSlide + direction;
+            if (nextSlide > totalSlides - 1) nextSlide = 0;
+            if (nextSlide < 0) nextSlide = totalSlides - 1;
+            goToSlide(nextSlide);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+                e.preventDefault(); changeSlide(1);
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault(); changeSlide(-1);
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const firstSlideElements = slides[0].querySelectorAll('.anim-item');
+            firstSlideElements.forEach(el => {
+                el.style.transition = 'none';
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+            });
+            void slides[0].offsetWidth;
+            requestAnimationFrame(() => {
+                firstSlideElements.forEach(el => {
+                    el.style.transition = '';
+                    el.style.opacity = '';
+                    el.style.transform = '';
+                });
+            });
+            triggerCounters(slides[0]);
+            updateUI();
+        });
+    </script>
+</body>
+
+</html>
